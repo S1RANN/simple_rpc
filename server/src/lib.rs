@@ -72,8 +72,8 @@ impl MathService {
             sender,
         }
     }
-    pub fn run(&self, addr: &str) {
-        println!("Server is running on {}", addr);
+    pub fn run(&self) {
+        println!("Server is running on {}", self.listener.local_addr().unwrap());
         for stream in self.listener.incoming() {
             let stream = stream.unwrap();
             println!("Server received a connection");
